@@ -65,8 +65,8 @@ class VisionTransformer(nn.Module):
                  qkv_bias=True, p=0., attn_p=0.):
         super().__init__()
         self.patch_embed = PatchEmbed(img_size=img_size, patch_size=patch_size, in_chans=in_chans, embed_dim=embed_dim)
-        self.cls_token = nn.Parameter(torch.zeros(1,1,embed_dim))
-        self.pos_embed = nn.Parameter(torch.zeros(1,1+self.patch_embed.n_patches, embed_dim))
+        self.cls_token = nn.Parameter(torch.zeros(1, 1, embed_dim))
+        self.pos_embed = nn.Parameter(torch.zeros(1, 1+self.patch_embed.n_patches, embed_dim))
         self.pos_drop = nn.Dropout(p=p)
         self.blocks = nn.ModuleList(
             [
